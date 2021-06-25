@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/audio/impactGeneric_light_002.ogg" type="AudioStream" id=1]
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player_2D.gd" type="Script" id=2]
+
+[node name="ClackSound" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+volume_db = -6.0
+script = ExtResource( 2 )
+streams = [ ExtResource( 1 ) ]
+randomize_volume = true
+volume_min = -6.0
+volume_max = 6.0
+randomize_pitch = true
+pitch_max = 2.0

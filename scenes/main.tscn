@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://interface/fonts/comfortaa.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/icons/preferences_icon.svg" type="Texture" id=3]
+[ext_resource path="res://interface/themes/default.theme" type="Theme" id=4]
+[ext_resource path="res://interface/icons/back_icon.svg" type="Texture" id=5]
+[ext_resource path="res://interface/fonts/comfortaa-bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://interface/icons/quit_icon.svg" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 7 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu"]
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = -303.0
+margin_top = -79.5
+margin_right = 303.0
+margin_bottom = 79.5
+custom_fonts/font = ExtResource( 2 )
+text = "App-a-cus"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="List" type="VBoxContainer" parent="Menu"]
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+margin_left = -180.0
+margin_top = -240.0
+margin_right = 180.0
+margin_bottom = 240.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="Menu/List"]
+margin_top = 150.0
+margin_right = 360.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 0, 180 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Start"
+
+[node name="PreferencesButton" type="Button" parent="Menu"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -144.0
+margin_right = 152.0
+icon = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreferencesPanel" type="Panel" parent="Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preferences" type="VBoxContainer" parent="Menu/PreferencesPanel"]
+anchor_left = 0.15
+anchor_top = 0.1
+anchor_right = 0.85
+anchor_bottom = 0.8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThemeColor" type="HBoxContainer" parent="Menu/PreferencesPanel/Preferences"]
+margin_right = 504.0
+margin_bottom = 53.0
+
+[node name="ThemeColorLabel" type="Label" parent="Menu/PreferencesPanel/Preferences/ThemeColor"]
+margin_right = 261.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+text = "Theme Colour:"
+
+[node name="ThemeColorOptionButton" type="OptionButton" parent="Menu/PreferencesPanel/Preferences/ThemeColor"]
+margin_left = 269.0
+margin_right = 504.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+text = "Default"
+items = [ "Default", null, false, 0, null, "Red", null, false, 1, null, "Orange", null, false, 2, null, "Yellow", null, false, 3, null, "Green", null, false, 4, null, "Cyan", null, false, 5, null, "Blue", null, false, 6, null, "Violet", null, false, 7, null ]
+selected = 0
+
+[node name="PreferencesBackButton" type="Button" parent="Menu/PreferencesPanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -144.0
+margin_right = 152.0
+icon = ExtResource( 5 )
+
+[node name="QuitButton" type="Button" parent="Menu"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_bottom = 64.0
+icon = ExtResource( 8 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Menu/List/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Menu/QuitButton" to="." method="_on_QuitButton_pressed"]

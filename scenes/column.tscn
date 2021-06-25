@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/bead.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/column.gd" type="Script" id=2]
+[ext_resource path="res://scenes/clack_sound.tscn" type="PackedScene" id=3]
+
+[node name="Column" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Beads" type="Node2D" parent="."]
+
+[node name="Bead1" parent="Beads" instance=ExtResource( 1 )]
+position = Vector2( 0, 96 )
+
+[node name="Bead2" parent="Beads" instance=ExtResource( 1 )]
+position = Vector2( 0, 160 )
+index = 1
+
+[node name="Bead3" parent="Beads" instance=ExtResource( 1 )]
+position = Vector2( 0, 224 )
+index = 2
+
+[node name="Bead4" parent="Beads" instance=ExtResource( 1 )]
+position = Vector2( 0, 288 )
+index = 3
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ClackSound" parent="." instance=ExtResource( 3 )]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

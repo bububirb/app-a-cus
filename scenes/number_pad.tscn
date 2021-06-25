@@ -1,0 +1,220 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/number_pad.gd" type="Script" id=1]
+[ext_resource path="res://interface/themes/default.theme" type="Theme" id=2]
+[ext_resource path="res://interface/fonts/comfortaa-bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://interface/icons/confirm_icon.svg" type="Texture" id=4]
+[ext_resource path="res://interface/icons/backspace_icon.svg" type="Texture" id=5]
+[ext_resource path="res://interface/icons/confirm_icon_cut.svg" type="Texture" id=6]
+[ext_resource path="res://interface/icons/backspace_icon_cut.svg" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 3 )
+
+[node name="NumberPad" type="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -420.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyGrid" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="KeyGrid"]
+margin_right = 720.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="Number1" type="Button" parent="KeyGrid/HBoxContainer"]
+margin_right = 144.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "1"
+
+[node name="Number2" type="Button" parent="KeyGrid/HBoxContainer"]
+margin_left = 144.0
+margin_right = 288.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "2"
+
+[node name="Number3" type="Button" parent="KeyGrid/HBoxContainer"]
+margin_left = 288.0
+margin_right = 432.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "3"
+
+[node name="Number4" type="Button" parent="KeyGrid/HBoxContainer"]
+margin_left = 432.0
+margin_right = 576.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "4"
+
+[node name="Number5" type="Button" parent="KeyGrid/HBoxContainer"]
+margin_left = 576.0
+margin_right = 720.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "5"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="KeyGrid"]
+margin_top = 140.0
+margin_right = 720.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="Number6" type="Button" parent="KeyGrid/HBoxContainer2"]
+margin_right = 144.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "6"
+
+[node name="Number7" type="Button" parent="KeyGrid/HBoxContainer2"]
+margin_left = 144.0
+margin_right = 288.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "7"
+
+[node name="Number8" type="Button" parent="KeyGrid/HBoxContainer2"]
+margin_left = 288.0
+margin_right = 432.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "8"
+
+[node name="Number9" type="Button" parent="KeyGrid/HBoxContainer2"]
+margin_left = 432.0
+margin_right = 576.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "9"
+
+[node name="Number0" type="Button" parent="KeyGrid/HBoxContainer2"]
+margin_left = 576.0
+margin_right = 720.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="KeyGrid"]
+margin_top = 280.0
+margin_right = 720.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="KeyGrid/HBoxContainer3"]
+margin_right = 144.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="KeyGrid/HBoxContainer3"]
+margin_left = 144.0
+margin_right = 288.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="KeyGrid/HBoxContainer3"]
+margin_left = 288.0
+margin_right = 432.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+
+[node name="Backspace" type="TextureButton" parent="KeyGrid/HBoxContainer3"]
+margin_left = 432.0
+margin_right = 576.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="KeyGrid/HBoxContainer3/Backspace"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enter" type="TextureButton" parent="KeyGrid/HBoxContainer3"]
+margin_left = 576.0
+margin_right = 720.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="KeyGrid/HBoxContainer3/Enter"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="_Backspace" type="Button" parent="KeyGrid"]
+visible = false
+margin_top = 534.0
+margin_right = 234.0
+margin_bottom = 704.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 7 )
+expand_icon = true
+
+[node name="_Enter" type="Button" parent="KeyGrid"]
+visible = false
+margin_top = 584.0
+margin_right = 234.0
+margin_bottom = 712.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 6 )
+expand_icon = true

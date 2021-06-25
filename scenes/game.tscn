@@ -1,0 +1,285 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://interface/icons/back_icon.svg" type="Texture" id=1]
+[ext_resource path="res://interface/themes/default.theme" type="Theme" id=2]
+[ext_resource path="res://scripts/game.gd" type="Script" id=3]
+[ext_resource path="res://scenes/abacus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/fonts/comfortaa.tres" type="DynamicFont" id=5]
+[ext_resource path="res://interface/icons/plus_icon.svg" type="Texture" id=6]
+[ext_resource path="res://interface/icons/minus_icon.svg" type="Texture" id=7]
+[ext_resource path="res://interface/icons/reset_icon.svg" type="Texture" id=8]
+[ext_resource path="res://scripts/value_box.gd" type="Script" id=9]
+[ext_resource path="res://scenes/number_pad.tscn" type="PackedScene" id=10]
+[ext_resource path="res://interface/icons/down_icon.svg" type="Texture" id=11]
+[ext_resource path="res://interface/icons/shuffle_icon.svg" type="Texture" id=12]
+[ext_resource path="res://interface/fonts/comfortaa-bold.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=2]
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Controls/Center/Abacus:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.2, -0.1, 0, 0.1, 0, 1.5, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Controls/Center/Abacus:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.2, -0.1, 0, 0.1, 0, 1.5, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Controls/Center/Abacus:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -135, -0.1, 0, 0.1, 0, 0, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Controls/NumberPad:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -420, -0.1, 0, 0.1, 0, 0, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Controls/Center/Abacus:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.5, -0.1, 0, 0.1, 0, 1.2, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Controls/Center/Abacus:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.5, -0.1, 0, 0.1, 0, 1.2, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Controls/Center/Abacus:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.1, 0, 0.1, 0, -135, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Controls/NumberPad:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.1, 0, 0.1, 0, -420, -0.5, 0, 0.5, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Timer" type="Timer" parent="Controls"]
+wait_time = 0.02
+
+[node name="Center" type="Control" parent="Controls"]
+anchor_left = 0.5
+anchor_top = 0.52
+anchor_right = 0.5
+anchor_bottom = 0.52
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Abacus" parent="Controls/Center" instance=ExtResource( 4 )]
+scale = Vector2( 1.5, 1.5 )
+
+[node name="CloseNumberPadButton" type="Button" parent="Controls"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -121.0
+icon = ExtResource( 11 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueBox" type="LineEdit" parent="Controls"]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+margin_left = 149.159
+margin_top = -72.0
+margin_right = -150.841
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+max_length = 3
+context_menu_enabled = false
+caret_blink = true
+caret_blink_speed = 0.5
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinusButton" type="Button" parent="Controls"]
+anchor_top = 0.1
+anchor_bottom = 0.1
+margin_top = -72.0
+margin_right = 152.0
+margin_bottom = 72.0
+icon = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlusButton" type="Button" parent="Controls"]
+anchor_left = 1.0
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+margin_left = -152.0
+margin_top = -72.0
+margin_bottom = 72.0
+icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputButton" type="Button" parent="Controls"]
+anchor_left = 0.6
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -140.0
+custom_fonts/font = SubResource( 1 )
+text = "Input"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberPad" parent="Controls" instance=ExtResource( 10 )]
+margin_top = 0.0
+
+[node name="ResetButton" type="TextureButton" parent="Controls"]
+anchor_left = 0.19
+anchor_top = 1.0
+anchor_right = 0.41
+anchor_bottom = 1.0
+margin_top = -140.0
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 3
+
+[node name="Panel" type="Panel" parent="Controls/ResetButton"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="Controls"]
+anchor_top = 1.0
+anchor_right = 0.2
+anchor_bottom = 1.0
+margin_top = -140.0
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Controls/BackButton"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ShuffleButton" type="TextureButton" parent="Controls"]
+anchor_left = 0.4
+anchor_top = 1.0
+anchor_right = 0.6
+anchor_bottom = 1.0
+margin_top = -140.0
+texture_normal = ExtResource( 12 )
+expand = true
+stretch_mode = 3
+
+[node name="Panel" type="Panel" parent="Controls/ShuffleButton"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/number_pad_close = SubResource( 2 )
+anims/number_pad_open = SubResource( 3 )
+
+[connection signal="timeout" from="Controls/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="update" from="Controls/Center/Abacus" to="." method="_on_Abacus_update"]
+[connection signal="pressed" from="Controls/CloseNumberPadButton" to="." method="_on_CloseNumberPadButton_pressed"]
+[connection signal="focus_entered" from="Controls/ValueBox" to="." method="_on_ValueBox_focus_entered"]
+[connection signal="text_changed" from="Controls/ValueBox" to="Controls/ValueBox" method="_on_ValueBox_text_changed"]
+[connection signal="text_entered" from="Controls/ValueBox" to="." method="_on_ValueBox_text_entered"]
+[connection signal="pressed" from="Controls/MinusButton" to="." method="_on_MinusButton_pressed"]
+[connection signal="pressed" from="Controls/PlusButton" to="." method="_on_PlusButton_pressed"]
+[connection signal="pressed" from="Controls/InputButton" to="." method="_on_InputButton_pressed"]
+[connection signal="key_pressed" from="Controls/NumberPad" to="." method="_on_NumberPad_key_pressed"]
+[connection signal="pressed" from="Controls/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="Controls/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Controls/ShuffleButton" to="." method="_on_ShuffleButton_pressed"]
